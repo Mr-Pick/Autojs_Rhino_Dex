@@ -35,6 +35,7 @@ java -jar .\rhino-Rhino1_7_14_Release-1.7.14.jar -f E:\autox-super-kit\out\main.
 
 调用 dex : 
 ```javascript
+"ui";
 // autojs 加载 dex
 runtime.loadDex("/sdcard/xxx辅助/aaa.dex");
 // 运行
@@ -69,12 +70,35 @@ javac .\StrUtils.java
 
 ## 自己的软件加载DEX,运行后界面乱码闪退 BUG
 
+> 是系统中 JDK 默认编码的问题, 需要指定为 `UTF-8`
+
+下面是 `两种情况` 下的解决方案
+
+### 执行 jar 
+
+执行 jar 的情况, 在 `系统环境变量` 中添加
+```
+JAVA_TOOL_OPTIONS
+-Dfile.encoding=UTF-8
+```
+
+如图:
+
+![image](https://github.com/xxxxue/Autojs_Rhino_Dex/assets/32764266/cd46ec18-1477-48dc-8d1f-9300929d5650)
+
+
+### IDEA 运行项目
+
 > IDEA中顶部菜单 -- 帮助 -- 编辑自定义 VM选项 -- 内容最底下加入下面的代码.
+
 > 重启IDEA再次运行Main方法,可以看到控制台日志可以显示中文了. APP软件也正常了.
+
 ```
 -Dfile.encoding=UTF-8
 ```
+
 如图:
+
 ![image](https://user-images.githubusercontent.com/32764266/169649429-c9a6d195-0fa4-4b0c-9fb6-aca66aa4ef92.png)
 
 # 支持作者
