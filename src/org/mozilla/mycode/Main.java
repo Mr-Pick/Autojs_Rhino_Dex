@@ -22,7 +22,7 @@ public class Main {
     /**
      * Rhino 加密等级
      */
-    public static Integer _level = 9;
+    public static Integer _level = 0;
 
     /**
      * 禁用加密
@@ -50,7 +50,7 @@ public class Main {
 
             // 输出目录 再创建一个唯一的文件夹 (使用当前时间精确到秒)
             _outDirPath = Paths.get(outputDirPath, getTimeString()).toString();
-            _level = Integer.valueOf(cmd.getOptionValue('l', "9"));
+            _level = Integer.valueOf(cmd.getOptionValue('l', "0"));
             _isNoEncryptString = cmd.hasOption('s');
 
             System.out.println("===================================");
